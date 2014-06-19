@@ -55,7 +55,7 @@ class HierarchicalRole implements HierarchicalRoleInterface
     /**
      * @var PermissionInterface[]|\Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Permission", indexBy="name", fetch="EAGER")
+     * @ORM\ManyToMany(targetEntity="Permission", indexBy="name", fetch="EAGER", cascade={"persist"})
      */
     protected $permissions;
 

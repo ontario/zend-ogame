@@ -48,7 +48,7 @@ return [
          *          ]
          *      ]
          */
-        // 'guards' => [],
+        'guards' => [],
 
         /**
          * As soon as one rule for either route or controller is specified, a guard will be automatically
@@ -60,7 +60,7 @@ return [
          *
          * DENY is the most secure way, but it is more work for the developer
          */
-        // 'protection_policy' => \ZfcRbac\Guard\GuardInterface::POLICY_ALLOW,
+        'protection_policy' => \ZfcRbac\Guard\GuardInterface::POLICY_DENY,
 
         /**
          * Configuration for role provider
@@ -77,7 +77,14 @@ return [
          *
          * Supported options depend of the role provider, so please refer to the official documentation
          */
-        'role_provider' => [],
+
+        'role_provider' => [
+            'ZfcRbac\Role\ObjectRepositoryRoleProvider' => [
+                'object_manager'     => 'doctrine.entitymanager.orm_default', // alias for doctrine ObjectManager
+                'class_name'         => 'Auth\Model\Entity\HierarchicalRole', // FQCN for your role entity class
+                'role_name_property' => 'name', // Name to show
+            ],
+        ],
 
         /**
          * Configure the unauthorized strategy. It is used to render a template whenever a user is unauthorized
@@ -86,7 +93,7 @@ return [
             /**
              * Set the template name to render
              */
-            // 'template' => 'error/403'
+            'template' => 'error/403'
         ],
 
         /**
@@ -128,15 +135,5 @@ return [
          */
         // 'guard_manager'               => [],
         // 'role_provider_manager'       => []
-        /**
-         * Configuration for role provider
-         */
-        'role_provider' => [
-            'ZfcRbac\Role\ObjectRepositoryRoleProvider' => [
-                'object_manager'     => 'doctrine.entitymanager.orm_default', // alias for doctrine ObjectManager
-                'class_name'         => 'Auth\Model\Entity\HierarchicalRole', // FQCN for your role entity class
-                'role_name_property' => 'name', // Name to show
-            ],
-        ],
     ]
 ];
