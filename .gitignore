@@ -7,6 +7,9 @@ nbproject
 .project
 .settings
 
+# 
+application.config.old
+
 # Composer files
 composer.lock
 vendor/
