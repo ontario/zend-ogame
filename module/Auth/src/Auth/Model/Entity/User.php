@@ -10,9 +10,11 @@ namespace Auth\Model\Entity;
 
 use ZfcUserDoctrineORM\Entity\User as ZfcUserEntity;
 use ZfcRbac\Identity\IdentityInterface;
+use Rbac\Role\HierarchicalRoleInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+
 
 /**
  * @ORM\Entity
@@ -90,9 +92,9 @@ class User extends ZfcUserEntity implements IdentityInterface {
 
     /**
      * Add one role to roles list
-     * @param \Rbac\Role\RoleInterface $role
+     * @param  \Rbac\Role\HierarchicalRoleInterface $role
      */
-    public function addRole(RoleInterface $role)
+    public function addRole(HierarchicalRoleInterface $role)
     {
         $this->roles[] = $role;
     }
