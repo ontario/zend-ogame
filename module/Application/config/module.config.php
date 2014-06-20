@@ -50,6 +50,16 @@ return array(
                     ),
                 ),
             ),
+            'admin' => array(
+                'type'    => 'Literal',
+                'options' => array(
+                    'route'    => '/admin',
+                    'defaults' => array(
+                        'controller' => 'Admin\Controller\Index',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
         ),
     ),
     'service_manager' => array(

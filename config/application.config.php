@@ -5,6 +5,7 @@
  *
  * @see https://github.com/zendframework/ZFTool
  */
+!defined('IS_DEV') ? DEFINE('IS_DEV', true) : false;
 return array(
     'modules' => array(
         'DoctrineModule',
@@ -18,8 +19,8 @@ return array(
         'OcraServiceManager',
         'Application',
         'Auth',
+        'Admin',
         'Game',
-
     ),
     'module_listener_options' => array(
         'module_paths' => array(
@@ -30,12 +31,9 @@ return array(
             'config/autoload/{,*.}{global,local}.php'
         )
     ),
-    'service_manager' => [
-        'aliases' => [
+    'service_manager' => array(
+        'aliases' => array(
             'Zend\Authentication\AuthenticationService' => 'zfcuser_auth_service'
-        ]
-    ],
-    'strategies' => array(
-        'ZfcTwigViewStrategy',
+        )
     ),
 );

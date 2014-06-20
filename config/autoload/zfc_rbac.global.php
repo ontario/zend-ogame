@@ -60,7 +60,7 @@ return [
          *
          * DENY is the most secure way, but it is more work for the developer
          */
-        'protection_policy' => \ZfcRbac\Guard\GuardInterface::POLICY_DENY,
+        'protection_policy' => defined('IS_DEV') ? (IS_DEV ? \ZfcRbac\Guard\GuardInterface::POLICY_ALLOW : \ZfcRbac\Guard\GuardInterface::POLICY_DENY) : \ZfcRbac\Guard\GuardInterface::POLICY_DENY,
 
         /**
          * Configuration for role provider

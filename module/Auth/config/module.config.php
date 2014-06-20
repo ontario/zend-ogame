@@ -1,6 +1,31 @@
 <?php
 return array(
-
+    'controllers'     => array(
+        'invokables' => array(
+            'Auth\Controller\AdminUser'   => 'Auth\Controller\AdminUserController',
+        ),
+    ),
+    'router' => array (
+        'routes' => array(
+            'admin' => array(
+                'child_routes' => array(
+                    'user' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/user[/:action]',
+                            'constraints' => array(
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                            'defaults' => array(
+                                'controller' => 'Auth\Controller\AdminUser',
+                                'action'     => 'index',
+                            ),
+                        ),
+                    ),
+                ),
+            )
+        ),
+    ),
     'doctrine' => array(
         'driver' => array(
             'zfcuser_entity' => array(
@@ -29,8 +54,6 @@ return array(
                 'zfcuser/login'    => ['guest'],
                 'zfcuser/register' => ['guest'], // required if registration is enabled
                 'zfcuser*'         => ['user'],  // includes logout, changepassword and changeemail
-                'home'             => ['guest'],
-                '*'                => ['admin']
             ]
         ],
         'redirect_strategy' => [
@@ -40,5 +63,10 @@ return array(
             'append_previous_uri'            => true,
             'previous_uri_query_key'         => 'redirectTo'
         ],
-   ],
+    ],
+    'view_manager' => array(
+        'template_path_stack' => array(
+            __DIR__ . '/../view',
+        ),
+    ),
 );
