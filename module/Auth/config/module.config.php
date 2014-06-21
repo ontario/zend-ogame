@@ -33,30 +33,18 @@ return array(
                 'cache' => 'app_memcache',
                 'paths' => array(__DIR__ . '/../src/Auth/Model/Entity'),
             ),
-
             'orm_default' => array(
                 'drivers' => array(
                     'Auth\Model\Entity' => 'zfcuser_entity'
                 ),
             ),
         ),
-        'configuration' => array(
-            'orm_default' => array(
-                'metadata_cache'    => 'app_memcache',
-                'query_cache'       => 'app_memcache',
-                'result_cache'      => 'app_memcache',
-            )
-        ),
     ),
-
-
-
-    //'default_user_role_id' => 2, // 1 - guest, 2 - user, 3 - admin
+    'default_user_role_id' => 2, // 1 - guest, 2 - user, 3 - admin
     'zfcuser' => array(
         'user_entity_class'       => 'Auth\Model\Entity\User',
         'enable_default_entities' => false,
     ),
-
     'zfc_rbac' => [
         'guards' => [
             'ZfcRbac\Guard\RouteGuard' => [
