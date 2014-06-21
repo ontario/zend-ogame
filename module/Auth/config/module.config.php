@@ -40,6 +40,13 @@ return array(
                 ),
             ),
         ),
+        'configuration' => array(
+            'orm_default' => array(
+                'metadata_cache'    => 'app_memcache',
+                'query_cache'       => 'app_memcache',
+                'result_cache'      => 'app_memcache',
+            )
+        ),
     ),
 
 
