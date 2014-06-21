@@ -30,7 +30,7 @@ return array(
         'driver' => array(
             'zfcuser_entity' => array(
                 'class' =>'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
-                'cache' => 'array',
+                'cache' => 'app_memcache',
                 'paths' => array(__DIR__ . '/../src/Auth/Model/Entity'),
             ),
 
@@ -42,7 +42,9 @@ return array(
         ),
     ),
 
-    'default_user_role_id' => 2,
+
+
+    //'default_user_role_id' => 2, // 1 - guest, 2 - user, 3 - admin
     'zfcuser' => array(
         'user_entity_class'       => 'Auth\Model\Entity\User',
         'enable_default_entities' => false,
