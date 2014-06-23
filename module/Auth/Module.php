@@ -33,6 +33,9 @@ class Module
         ];
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function onBootstrap(EventInterface $mvcEvent)
     {
         $target = $mvcEvent->getTarget();
