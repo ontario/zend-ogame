@@ -33,12 +33,31 @@ class Module
         ];
     }
 
-    public function onBootstrap(EventInterface $e)
+    public function onBootstrap(EventInterface $mvcEvent)
     {
-        $t = $e->getTarget();
+        $target = $mvcEvent->getTarget();
 
-        $t->getEventManager()->attach(
-            $t->getServiceManager()->get('Auth\View\Strategy\SmartRedirectStrategy')
+        $sm = $mvcEvent->getApplication()->getServiceManager();
+        $target->getEventManager()->attach(
+            $sm->get('Auth\View\Strategy\SmartRedirectStrategy')
+        );
+
+        $zfcServiceEvents = $sm->get('zfcuser_user_service')->getEventManager();
+
+        $zfcServiceEvents->attach('register', function($event) use($sm) {
+                $em = $sm->get('doctrine.entitymanager.orm_default');
+                $config = $sm->get('config');
+
+                $user = $event->getParam('user');
+
+                if ( isset($config['default_user_role_id']) ) {
+                    $defaultUserRole = $em->getRepository('Auth\Model\Entity\HierarchicalRole')
+                        ->find($config['default_user_role_id']);
+                    $user->addRole($defaultUserRole);
+                } else {
+                    throw new \Exception ('Default user role id not set.');
+                }
+            }
         );
 
         $zfcServiceEvents = $e->getApplication()->getServiceManager()->get('zfcuser_user_service')->getEventManager();
