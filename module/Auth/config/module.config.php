@@ -54,7 +54,7 @@ return array(
                 'zfcuser*'         => ['user'],
             ]
         ],
-        'redirect_strategy' => [
+            'redirect_strategy' => [
             'redirect_when_connected'        => true,
             'redirect_to_route_connected'    => 'home',
             'redirect_to_route_disconnected' => 'zfcuser/login',

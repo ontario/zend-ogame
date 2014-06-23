@@ -29,6 +29,7 @@ class Module
         return [
             'factories' => [
                 'Auth\View\Strategy\SmartRedirectStrategy' => 'Auth\Factory\SmartRedirectStrategyFactory',
+                'Auth\Model\Service\AuthUserService'           => 'Auth\Model\Service\AuthUserService',
             ]
         ];
     }

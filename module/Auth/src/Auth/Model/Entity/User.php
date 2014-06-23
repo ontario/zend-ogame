@@ -100,6 +100,7 @@ class User extends ZfcUserEntity implements IdentityInterface {
     }
 
     /**
+     * @return array
      * Helper function
      */
     public function getArrayCopy()

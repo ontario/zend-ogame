@@ -10,17 +10,9 @@ class AdminUserController extends AbstractActionController
 
     public function indexAction()
     {
-        $objectManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
-
-        $users = $objectManager
-            ->getRepository('\Auth\Model\Entity\User')
-            ->findAll();
-
-        $users_array = array();
-        foreach ($users as $user) {
-            $users_array[] = $user->getArrayCopy();
-        }
-
+        $sm = $this->getServiceLocator();
+        $users = $sm->get('\Auth\Model\Service\AuthUserService');
+        $users_array = $users->getAll();
         return new ViewModel(array('users' => $users_array));
     }
 
