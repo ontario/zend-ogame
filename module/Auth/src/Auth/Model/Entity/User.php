@@ -96,4 +96,12 @@ class User extends ZfcUserEntity implements IdentityInterface {
     {
         $this->roles[] = $role;
     }
+
+    /**
+     * Helper function
+     */
+    public function getArrayCopy()
+    {
+        return get_object_vars($this);
+    }
 } 

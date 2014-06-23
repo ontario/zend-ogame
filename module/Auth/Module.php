@@ -40,5 +40,16 @@ class Module
         $t->getEventManager()->attach(
             $t->getServiceManager()->get('Auth\View\Strategy\SmartRedirectStrategy')
         );
+
+        $zfcServiceEvents = $e->getApplication()->getServiceManager()->get('zfcuser_user_service')->getEventManager();
+        $zfcServiceEvents->attach('register', function($e) use($e) {
+            $user = $e->getParam('user');
+            $em = $e->getApplication()->getServiceManager()->get('doctrine.entitymanager.orm_default');
+            $config = $e->getApplication()->getServiceManager()->get('config');
+            if (isset($config['default_user_role'])) {
+                $defaultUserRole = $em->getRepository('Auth\Model\Entity\HierarchicalRole')->findBy($config['default_user_role']);
+                $user->addRole($defaultUserRole);
+            }
+        });
     }
 }

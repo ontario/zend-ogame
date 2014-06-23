@@ -1,5 +1,38 @@
 {% extends 'layout/layout.twig' %}
 
 {% block content %}
-Action "index", controller "AdminUser", module "Auth".
+    <h2 class="sub-header">Users:</h2>
+    <button class="btn btn-primary" type="button">Add user</button>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                {% for user in users %}
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Full name</th>
+                    <th>Password</th>
+                    <th>Roles</th>
+                    <th>Actions</th>
+                {% endfor %}
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.displayName }}</td>
+                        <td>{{ user.password }}</td>
+                        <td><button class="btn btn-xs btn-info"    type="button">Show</button></td>
+                        <td>
+                            <button class="btn btn-xs btn-success" type="button">Duplicate</button>
+                            <button class="btn btn-xs btn-success" type="button">Edit</button>
+                            <button class="btn btn-xs btn-danger"  type="button">Delete</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock content %}

@@ -1,5 +1,6 @@
 <?php
 return array(
+    'default_user_role' => 'user',
     'controllers'     => array(
         'invokables' => array(
             'Auth\Controller\AdminUser'   => 'Auth\Controller\AdminUserController',
