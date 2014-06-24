@@ -55,7 +55,7 @@ class Module
                 $defaultUserRole = $em->getRepository('Auth\Model\Entity\HierarchicalRole')->findBy($config['default_user_role_id']);
                 $user->addRole($defaultUserRole);
             } else {
-                throw new \Exception('Have not set config value "default_user_role_id".');
+                throw new \Exception('Config value "default_user_role_id" is missing.');
             }
         });
     }

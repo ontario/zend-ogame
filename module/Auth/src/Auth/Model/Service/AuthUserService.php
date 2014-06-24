@@ -39,7 +39,7 @@ class AuthUserService implements FactoryInterface {
         $users = $this->table->findAll();
         $users_array = array();
         foreach ($users as $user) {
-            $users_array[] = $users->getArrayCopy();
+            $users_array[] = $user->getArrayCopy();
         }
         return $users_array;
     }
