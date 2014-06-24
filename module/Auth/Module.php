@@ -51,7 +51,7 @@ class Module
             $user = $e->getParam('user');
             $em = $sm->get('doctrine.entitymanager.orm_default');
             $config = $sm->get('config');
-            if (isset($config['default_user_role'])) {
+            if (isset($config['default_user_role_id'])) {
                 $defaultUserRole = $em->getRepository('Auth\Model\Entity\HierarchicalRole')->findBy($config['default_user_role_id']);
                 $user->addRole($defaultUserRole);
             } else {
