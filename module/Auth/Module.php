@@ -52,7 +52,7 @@ class Module
             $em = $sm->get('doctrine.entitymanager.orm_default');
             $config = $sm->get('config');
             if (isset($config['default_user_role_id'])) {
-                $defaultUserRole = $em->getRepository('Auth\Model\Entity\HierarchicalRole')->findBy($config['default_user_role_id']);
+                $defaultUserRole = $em->getRepository('Auth\Model\Entity\HierarchicalRole')->find($config['default_user_role_id']);
                 $user->addRole($defaultUserRole);
             } else {
                 throw new \Exception('Config value "default_user_role_id" is missing.');
