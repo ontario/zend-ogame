@@ -18,6 +18,8 @@
         "ocramius/ocra-service-manager": "2.1.1",
         "ocramius/generated-hydrator": "1.0.2",
         "zendframework/zftool": "dev-master",
-        "sensiolabs/security-checker": "dev-master"
+        "sensiolabs/security-checker": "dev-master",
+        "doctrine/data-fixtures": "dev-master",
+        "hounddog/doctrine-data-fixture-module": "0.0.*"
     }
 }
