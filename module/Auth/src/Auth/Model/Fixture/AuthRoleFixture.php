@@ -41,7 +41,8 @@ class AuthRoleFixture extends AbstractFixture {
 
         $manager->flush();
 
-        $this->addReference('user-role', $userRole);
+        $this->addReference('user-role',  $userRole);
+        $this->addReference('admin-role', $adminRole);
     }
 
 } 

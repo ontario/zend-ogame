@@ -10,6 +10,7 @@ namespace Auth\Model\Fixture;
 
 
 use Auth\Model\Entity\User;
+use Zend\Crypt\Password\Bcrypt;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -33,13 +34,20 @@ class AuthUserFixture extends AbstractFixture implements DependentFixtureInterfa
      */
     public function load(ObjectManager $manager)
     {
+        $sm = $this->getServiceManager();
+        $options = $sm->get('zfcuser_module_options');
+
         $user = new User();
         $user->setId(1);
         $user->setEmail('admin@example.com');
-        $user->setDisplayName('Default admin');
-        $user->setPassword('superadmin');
+        $user->setDisplayName('Admin example.com');
+        
+        $bcrypt = new Bcrypt;
+        $bcrypt->setCost($options->getPasswordCost());
+
+        $user->setPassword($bcrypt->create('admin'));
         $user->setUsername('Admin');
-        $user->addRole($this->getReference('user-role'));
+        $user->addRole($this->getReference('admin-role'));
 
         $manager->persist($user);
 
