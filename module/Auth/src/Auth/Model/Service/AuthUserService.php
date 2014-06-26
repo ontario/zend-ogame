@@ -44,4 +44,5 @@ class AuthUserService implements FactoryInterface {
         return $users_array;
     }
 
-} 
+}
+ 

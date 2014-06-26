@@ -54,12 +54,12 @@ return array(
                 'zfcuser*'         => ['user'],
             ]
         ],
-            'redirect_strategy' => [
+        'redirect_strategy' => [
             'redirect_when_connected'        => true,
             'redirect_to_route_connected'    => 'home',
             'redirect_to_route_disconnected' => 'zfcuser/login',
             'append_previous_uri'            => true,
-            'previous_uri_query_key'         => 'redirectTo'
+            'previous_uri_query_key'         => 'redirectTo',
         ],
     ],
     'view_manager' => array(
