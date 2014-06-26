@@ -69,6 +69,16 @@ class HierarchicalRole implements HierarchicalRoleInterface
     }
 
     /**
+     * Set the role identifier
+     *
+     * @param int
+     */
+    public function setId($id)
+    {
+        $this->id = (int) $id;
+    }
+
+    /**
      * Get the role identifier
      *
      * @return int
