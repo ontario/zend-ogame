@@ -14,15 +14,23 @@ use Zend\Crypt\Password\Bcrypt;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Zend\ServiceManager\ServiceLocatorAwareInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
-class AuthUserFixture extends AbstractFixture implements DependentFixtureInterface {
+class AuthUserFixture extends AbstractFixture implements DependentFixtureInterface, ServiceLocatorAwareInterface
+{
+    /**
+     * @var ServiceLocatorInterface
+     */
+    protected $serviceLocator;
+
     /**
      * This method must return an array of fixtures classes
      * on which the implementing class depends on
      *
      * @return array
      */
-    function getDependencies()
+    public function getDependencies()
     {
         return array('Auth\Model\Fixture\AuthRoleFixture');
     }
@@ -34,8 +42,7 @@ class AuthUserFixture extends AbstractFixture implements DependentFixtureInterfa
      */
     public function load(ObjectManager $manager)
     {
-        $sm = $this->getServiceManager();
-        $options = $sm->get('zfcuser_module_options');
+        $options = $this->serviceLocator->get('zfcuser_module_options');
 
         $user = new User();
         $user->setId(1);
@@ -46,7 +53,7 @@ class AuthUserFixture extends AbstractFixture implements DependentFixtureInterfa
         $bcrypt->setCost($options->getPasswordCost());
 
         $user->setPassword($bcrypt->create('admin'));
-        $user->setUsername('Admin');
+        $user->setUsername('admin');
         $user->addRole($this->getReference('admin-role'));
 
         $manager->persist($user);
@@ -54,4 +61,23 @@ class AuthUserFixture extends AbstractFixture implements DependentFixtureInterfa
         $manager->flush();
     }
 
-} 
+    /**
+     * Set service locator
+     *
+     * @param ServiceLocatorInterface $serviceLocator
+     */
+    public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
+    {
+        $this->serviceLocator = $serviceLocator;
+    }
+
+    /**
+     * Get service locator
+     *
+     * @return ServiceLocatorInterface
+     */
+    public function getServiceLocator()
+    {
+        return $this->serviceLocator;
+    }
+}

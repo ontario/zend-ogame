@@ -12,7 +12,8 @@ use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Auth\Model\Entity\User;
 
-class AuthUserService implements FactoryInterface {
+class AuthUserService implements FactoryInterface
+{
 
     /**
      * @var User
@@ -35,7 +36,8 @@ class AuthUserService implements FactoryInterface {
     /**
      * @return array
      */
-    public function getAll() {
+    public function getAll()
+    {
         $users = $this->table->findAll();
         $users_array = array();
         foreach ($users as $user) {
@@ -43,6 +45,4 @@ class AuthUserService implements FactoryInterface {
         }
         return $users_array;
     }
-
 }
- 

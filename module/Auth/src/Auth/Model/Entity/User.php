@@ -15,12 +15,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
-
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
  */
-class User extends ZfcUserEntity implements IdentityInterface {
+class User extends ZfcUserEntity implements IdentityInterface
+{
 
     /**
      * @var int
@@ -107,4 +107,4 @@ class User extends ZfcUserEntity implements IdentityInterface {
     {
         return get_object_vars($this);
     }
-} 
+}

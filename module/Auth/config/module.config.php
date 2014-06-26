@@ -40,9 +40,9 @@ return array(
                 ),
             ),
         ),
-    ),
-    'data-fixture' => array(
-        'Auth_Fixture' => __DIR__ . '/../src/Auth/Model/Fixture',
+        'fixture' => array(
+            'Auth_Fixture' => __DIR__ . '/../src/Auth/Model/Fixture',
+        ),
     ),
     'default_user_role_name' => 'user', // 1 - guest, 2 - user, 3 - admin
     'zfcuser' => array(

@@ -1,8 +1,9 @@
 {
     "name": "zendframework/skeleton-application",
-    "description": "Skeleton Application for ZF2",
+    "description": "Ogame game clone.",
     "license": "BSD-3-Clause",
     "keywords": [
+	"ogame",
         "framework",
         "zf2"
     ],
@@ -20,6 +21,20 @@
         "zendframework/zftool": "dev-master",
         "sensiolabs/security-checker": "dev-master",
         "doctrine/data-fixtures": "dev-master",
-        "hounddog/doctrine-data-fixture-module": "0.0.*"
+        "hounddog/doctrine-data-fixture-module": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "3.7.*",
+        "satooshi/php-coveralls": ">=0.6.0",
+        "squizlabs/php_codesniffer": "1.4.*"   
+    },
+    "autoload": {
+        "psr-0": {
+            "Application": "src/",
+	    "Auth": "src/",
+	    "Admin": "src/",
+	    "Game": "src/"
+        }
     }
+
 }

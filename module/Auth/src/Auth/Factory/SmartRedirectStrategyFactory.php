@@ -12,7 +12,8 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Auth\View\Strategy\SmartRedirectStrategy;
 
-class SmartRedirectStrategyFactory implements FactoryInterface {
+class SmartRedirectStrategyFactory implements FactoryInterface
+{
     /**
      * gets SmartRedirectStrategy
      *
@@ -24,4 +25,4 @@ class SmartRedirectStrategyFactory implements FactoryInterface {
     {
         return new SmartRedirectStrategy($serviceLocator->get('zfcuser_auth_service'));
     }
-} 
+}

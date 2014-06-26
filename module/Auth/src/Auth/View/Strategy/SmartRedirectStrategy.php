@@ -12,7 +12,8 @@ use ZfcRbac\View\Strategy\AbstractStrategy;
 use Zend\Authentication\AuthenticationService;
 use Zend\Mvc\MvcEvent;
 
-class SmartRedirectStrategy extends AbstractStrategy {
+class SmartRedirectStrategy extends AbstractStrategy
+{
     /**
      * @var AuthenticationService
      */
@@ -45,4 +46,4 @@ class SmartRedirectStrategy extends AbstractStrategy {
             $serviceManager->get('ZfcRbac\View\Strategy\RedirectStrategy')->onError($event);
         }
     }
-} 
+}

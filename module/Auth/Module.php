@@ -47,12 +47,14 @@ class Module
         );
 
         $zfcServiceEvents = $sm->get('zfcuser_user_service')->getEventManager();
-        $zfcServiceEvents->attach('register', function($e) use($sm) {
+        $zfcServiceEvents->attach('register', function ($e) use ($sm) {
             $user = $e->getParam('user');
             $em = $sm->get('doctrine.entitymanager.orm_default');
             $config = $sm->get('config');
             if (isset($config['default_user_role_id'])) {
-                $defaultUserRole = $em->getRepository('Auth\Model\Entity\HierarchicalRole')->findBy(array('name'=>$config['default_user_role_name']))->first();
+                $defaultUserRole = $em->getRepository('Auth\Model\Entity\HierarchicalRole')->
+                    findBy(array('name'=>$config['default_user_role_name']))
+                    ->first();
                 $user->addRole($defaultUserRole);
             } else {
                 throw new \Exception('Config value "default_user_role_name" is missing.');

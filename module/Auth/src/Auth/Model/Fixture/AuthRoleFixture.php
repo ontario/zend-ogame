@@ -13,7 +13,8 @@ use Auth\Model\Entity\HierarchicalRole;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class AuthRoleFixture extends AbstractFixture {
+class AuthRoleFixture extends AbstractFixture
+{
     /**
      * Load data fixtures with the passed EntityManager
      *
@@ -41,8 +42,7 @@ class AuthRoleFixture extends AbstractFixture {
 
         $manager->flush();
 
-        $this->addReference('user-role',  $userRole);
+        $this->addReference('user-role', $userRole);
         $this->addReference('admin-role', $adminRole);
     }
-
-} 
+}

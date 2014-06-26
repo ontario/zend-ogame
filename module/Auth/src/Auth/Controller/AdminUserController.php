@@ -15,5 +15,4 @@ class AdminUserController extends AbstractActionController
         $users_array = $users->getAll();
         return new ViewModel(array('users' => $users_array));
     }
-
 }
