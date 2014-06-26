@@ -10,6 +10,7 @@ return array(
     'modules' => array(
         'DoctrineModule',
         'DoctrineORMModule',
+        'DoctrineDataFixtureModule',
         'ZfcBase',
         'ZfcUser',
         'ZfcUserDoctrineORM',
