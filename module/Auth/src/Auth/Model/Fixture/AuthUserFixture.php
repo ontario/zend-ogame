@@ -39,6 +39,7 @@ class AuthUserFixture extends AbstractFixture implements DependentFixtureInterfa
         $user->setDisplayName('Default admin');
         $user->setPassword('superadmin');
         $user->setUsername('Admin');
+        $user->addRole($this->getReference('user-role'));
 
         $manager->persist($user);
 

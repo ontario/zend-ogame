@@ -40,14 +40,11 @@ return array(
                 ),
             ),
         ),
-    	'configuration' => array(
-            'fixtures' => array(
-                'Auth_Fixtures' => __DIR__ . '/../src/Auth/Model/Fixture',
-            ),
-        ),
-    		
     ),
-    'default_user_role_id' => 2, // 1 - guest, 2 - user, 3 - admin
+    'data-fixture' => array(
+        'Auth_Fixture' => __DIR__ . '/../src/Auth/Model/Fixture',
+    ),
+    'default_user_role_name' => 'user', // 1 - guest, 2 - user, 3 - admin
     'zfcuser' => array(
         'user_entity_class'       => 'Auth\Model\Entity\User',
         'enable_default_entities' => false,

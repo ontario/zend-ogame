@@ -10,7 +10,6 @@ return array(
     'modules' => array(
         'DoctrineModule',
         'DoctrineORMModule',
-        'DoctrineDataFixtureModule',
         'ZfcBase',
         'ZfcUser',
         'ZfcUserDoctrineORM',
@@ -23,6 +22,8 @@ return array(
         'Auth',
         'Admin',
         'Game',
+
+        'DoctrineDataFixtureModule',
     ),
     'module_listener_options' => array(
         'module_paths' => array(
