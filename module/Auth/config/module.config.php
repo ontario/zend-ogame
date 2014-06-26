@@ -40,9 +40,11 @@ return array(
                 ),
             ),
         ),
-    	'fixture' => array(
-    		'Auth_fixture' => __DIR__ . '/../fixtures',
-    	),
+    	'configuration' => array(
+            'fixtures' => array(
+                'Auth_Fixtures' => __DIR__ . '/../src/Auth/Model/Fixture',
+            ),
+        ),
     		
     ),
     'default_user_role_id' => 2, // 1 - guest, 2 - user, 3 - admin
