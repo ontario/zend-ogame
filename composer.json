@@ -1,13 +1,13 @@
 {
-    "name": "zendframework/skeleton-application",
+    "name": "ontario/zend-ogame",
     "description": "Ogame game clone.",
     "license": "BSD-3-Clause",
     "keywords": [
-	"ogame",
+	    "ogame",
         "framework",
         "zf2"
     ],
-    "homepage": "http://framework.zend.com/",
+    "homepage": "http://ogame.ontario.pp.ua/",
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.3.*",
@@ -30,7 +30,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Application": "src/",
+        "Application": "src/",
 	    "Auth": "src/",
 	    "Admin": "src/",
 	    "Game": "src/"
