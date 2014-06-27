@@ -27,12 +27,12 @@ class AuthRoleFixture extends AbstractFixture
         $guestRole->setName('guest');
 
         $userRole = new HierarchicalRole();
-        $guestRole->setId(2);
+        $userRole->setId(2);
         $userRole->setName('user');
         $userRole->addChild($guestRole);
 
         $adminRole = new HierarchicalRole();
-        $guestRole->setId(3);
+        $adminRole->setId(3);
         $adminRole->setName('admin');
         $adminRole->addChild($userRole);
 
@@ -42,6 +42,7 @@ class AuthRoleFixture extends AbstractFixture
 
         $manager->flush();
 
+        $this->addReference('guest-role', $guestRole);
         $this->addReference('user-role', $userRole);
         $this->addReference('admin-role', $adminRole);
     }
