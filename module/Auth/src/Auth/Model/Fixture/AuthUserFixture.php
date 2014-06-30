@@ -8,7 +8,6 @@
 
 namespace Auth\Model\Fixture;
 
-
 use Auth\Model\Entity\User;
 use Zend\Crypt\Password\Bcrypt;
 use Doctrine\Common\DataFixtures\AbstractFixture;
@@ -48,7 +47,7 @@ class AuthUserFixture extends AbstractFixture implements DependentFixtureInterfa
         $user->setId(1);
         $user->setEmail('admin@example.com');
         $user->setDisplayName('Admin example.com');
-        
+
         $bcrypt = new Bcrypt;
         $bcrypt->setCost($options->getPasswordCost());
 
@@ -62,17 +61,6 @@ class AuthUserFixture extends AbstractFixture implements DependentFixtureInterfa
     }
 
     /**
-     * Set service locator
-     *
-     * @param ServiceLocatorInterface $serviceLocator
-     */
-    public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
-    {
-        $this->serviceLocator = $serviceLocator;
-        return $this;
-    }
-
-    /**
      * Get service locator
      *
      * @return ServiceLocatorInterface
@@ -80,5 +68,16 @@ class AuthUserFixture extends AbstractFixture implements DependentFixtureInterfa
     public function getServiceLocator()
     {
         return $this->serviceLocator;
+    }
+
+    /**
+     * Set service locator
+     * @return AuthUserFixture
+     * @param ServiceLocatorInterface $serviceLocator
+     */
+    public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
+    {
+        $this->serviceLocator = $serviceLocator;
+        return $this;
     }
 }

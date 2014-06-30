@@ -18,7 +18,8 @@ use Auth\Model\Entity\User;
  * @ORM\Entity
  * @ORM\Table(name="planets", indexes={@ORM\Index(name="gsp_idx", columns={"galaxy", "system", "planet"})})
  */
-class Planet {
+class Planet
+{
     /**
      * @var int
      * @ORM\Id
@@ -66,7 +67,7 @@ class Planet {
     /**
      * @param array $options
      */
-    public function __construct(array $options=array())
+    public function __construct(array $options = array())
     {
         if (empty($options)) {
             $this->name = 'Colony';
@@ -125,4 +126,4 @@ class Planet {
     {
         return $this->owner;
     }
-} 
+}
