@@ -43,7 +43,7 @@ class Module
 
         $sm = $mvcEvent->getApplication()->getServiceManager();
         $target->getEventManager()->attach(
-            $sm->get('Auth\View\Strategy\SmartRedirectStrategy')
+            $sm->get(__NAMESPACE__ . '\View\Strategy\SmartRedirectStrategy')
         );
 
         $zfcServiceEvents = $sm->get('zfcuser_user_service')->getEventManager();
@@ -52,7 +52,7 @@ class Module
             $em = $sm->get('doctrine.entitymanager.orm_default');
             $config = $sm->get('config');
             if (isset($config['default_user_role_id'])) {
-                $defaultUserRole = $em->getRepository('Auth\Model\Entity\HierarchicalRole')->
+                $defaultUserRole = $em->getRepository(__NAMESPACE__ . '\Model\Entity\HierarchicalRole')->
                     findBy(array('name'=>$config['default_user_role_name']))
                     ->first();
                 $user->addRole($defaultUserRole);

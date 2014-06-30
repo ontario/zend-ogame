@@ -8,6 +8,7 @@
  */
 namespace Auth\Model\Entity;
 
+use Game\Model\Entity\Planet;
 use ZfcUserDoctrineORM\Entity\User as ZfcUserEntity;
 use ZfcRbac\Identity\IdentityInterface;
 use Rbac\Role\HierarchicalRoleInterface;
@@ -60,14 +61,36 @@ class User extends ZfcUserEntity implements IdentityInterface
     protected $state;
 
     /**
-     * @var Collection
+     * @var HierarchicalRole[]|Collection
      * @ORM\ManyToMany(targetEntity="HierarchicalRole")
      */
     private $roles;
 
+    /**
+     * @var Planet
+     * @ORM\OneToOne(targetEntity="Game\Model\Entity\Planet")
+     * @ORM\JoinColumn(name="main_planet_id", referencedColumnName="id")
+     */
+    private $mainPlanet;
+
+    /**
+     * @var Planet
+     * @ORM\OneToOne(targetEntity="Game\Model\Entity\Planet")
+     * @ORM\JoinColumn(name="current_planet_id", referencedColumnName="id")
+     */
+    private $currentPlanet;
+
+    /**
+     * @var Planet[]|Collection
+     * @ORM\OneToMany(targetEntity="Game\Model\Entity\Planet", mappedBy="owner", fetch="EAGER")
+     */
+    private $planets;
+
+
     public function __construct()
     {
-        $this->roles = new ArrayCollection();
+        $this->roles   = new ArrayCollection();
+        $this->planets = new ArrayCollection();
     }
 
     /**
@@ -106,5 +129,33 @@ class User extends ZfcUserEntity implements IdentityInterface
     public function getArrayCopy()
     {
         return get_object_vars($this);
+    }
+
+    /**
+     * Add one planet to planets list
+     * @param  \Game\Model\Entity\Planet $planet
+     */
+    public function addPlanet(Planet $planet)
+    {
+        $this->planets[] = $planet;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $planets
+     */
+    public function setPlanets(Collection $planets)
+    {
+        $this->planets->clear();
+        foreach ($planets as $planet) {
+            $this->planets[] = $planet;
+        }
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPlanets()
+    {
+        return $this->planets->toArray();
     }
 }

@@ -23,7 +23,7 @@ return array(
         'Admin',
         'Game',
 
-        'DoctrineDataFixtureModule',
+        //'DoctrineDataFixtureModule',
     ),
     'module_listener_options' => array(
         'module_paths' => array(

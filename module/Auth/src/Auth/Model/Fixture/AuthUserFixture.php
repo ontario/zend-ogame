@@ -52,7 +52,7 @@ class AuthUserFixture extends AbstractFixture implements DependentFixtureInterfa
         $bcrypt = new Bcrypt;
         $bcrypt->setCost($options->getPasswordCost());
 
-        $user->setPassword($bcrypt->create('admin'));
+        $user->setPassword($bcrypt->create('adminadmin'));
         $user->setUsername('admin');
         $user->addRole($this->getReference('admin-role'));
 
@@ -69,6 +69,7 @@ class AuthUserFixture extends AbstractFixture implements DependentFixtureInterfa
     public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
     {
         $this->serviceLocator = $serviceLocator;
+        return $this;
     }
 
     /**
