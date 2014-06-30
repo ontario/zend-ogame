@@ -63,5 +63,4 @@ class Resource
     {
         return $this->name;
     }
-
 }
