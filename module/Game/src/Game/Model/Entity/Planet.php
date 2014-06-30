@@ -9,8 +9,11 @@
 
 namespace Game\Model\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Auth\Model\Entity\User;
+use Game\Model\Entity\Resource;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * Class Planet
@@ -65,6 +68,12 @@ class Planet
     private $type;
 
     /**
+     * @var Resource[]|Collection
+     * @ORM\ManyToMany(targetEntity="Resource")
+     */
+    private $resources;
+
+    /**
      * @param array $options
      */
     public function __construct(array $options = array())
@@ -75,6 +84,7 @@ class Planet
         } else {
 
         }
+        $this->resources = new ArrayCollection();
     }
 
     /** Getters/Setters */
@@ -125,5 +135,32 @@ class Planet
     public function getOwner()
     {
         return $this->owner;
+    }
+
+    /**
+     * @param Collection $resources
+     */
+    public function setResources(Collection $resources)
+    {
+        $this->resources->clear();
+        foreach ($resources as $resource) {
+            $this->resources[] = $resource;
+        }
+    }
+
+    /**
+     * @return Resource[]
+     */
+    public function getResources()
+    {
+        return $this->resources->toArray();
+    }
+
+    /**
+     * @param Resource $resource
+     */
+    public function addResource(Resource $resource)
+    {
+        $this->resources[] = $resource;
     }
 }
