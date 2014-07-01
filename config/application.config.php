@@ -5,7 +5,7 @@
  *
  * @see https://github.com/zendframework/ZFTool
  */
-$env = getenv('APPLICATION_ENV') ?: 'production';
+
 
 $modules = array(
         'DoctrineModule',
@@ -22,14 +22,11 @@ $modules = array(
         'Admin',
     );
 
-if ($env == 'development') {
-    DEFINE('IS_DEV', true);
+if (IS_DEV) {
     $modules[] = 'ZendDeveloperTools';
     //$modules[] = 'OcraServiceManager';
     //$modules[] = 'BjyProfiler',
-    //$modules[] = 'DoctrineDataFixtureModule',
-} else {
-    DEFINE('IS_DEV', false);
+    $modules[] = 'DoctrineDataFixtureModule';
 }
 
 return array(

@@ -20,7 +20,6 @@
  * Copy-paste this file to your config/autoload folder (don't forget to remove the .dist extension!)
  */
 
-$env = getenv('APPLICATION_ENV') ?: 'production';
 return [
     'zfc_rbac' => [
         /**
@@ -61,7 +60,7 @@ return [
          *
          * DENY is the most secure way, but it is more work for the developer
          */
-        'protection_policy' => $env == 'development' ? \ZfcRbac\Guard\GuardInterface::POLICY_ALLOW : \ZfcRbac\Guard\GuardInterface::POLICY_DENY,
+        'protection_policy' => IS_DEV ? \ZfcRbac\Guard\GuardInterface::POLICY_ALLOW : \ZfcRbac\Guard\GuardInterface::POLICY_DENY,
 
         /**
          * Configuration for role provider

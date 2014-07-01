@@ -3,12 +3,15 @@
  * This makes our life easier when dealing with paths. Everything is relative
  * to the application root now.
  */
-DEFINE('IS_DEV', true);
+$env = getenv('APPLICATION_ENV') ?: 'production';
 
-if (IS_DEV) {
-    error_reporting(E_ALL);
+if ($env == 'development') {
+	DEFINE('IS_DEV', true);
+	error_reporting(E_ALL);
     ini_set('display_errors', true);
     ini_set('error_reporting', E_ALL);
+} else {
+	DEFINE('IS_DEV', false);
 }
 
 chdir(dirname(__DIR__));
