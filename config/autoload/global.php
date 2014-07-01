@@ -12,4 +12,27 @@
  */
 
 return array(
+    'service_manager' => array(
+        'aliases' => array(
+            'Zend\Authentication\AuthenticationService' => 'zfcuser_auth_service'
+        ),
+        'factories' => array(
+            'doctrine.cache.app_memcache' => function ($sm) {
+                    $cache = new \Doctrine\Common\Cache\MemcacheCache();
+                    $memcache = new \Memcache();
+                    $memcache->connect('localhost', 11211);
+                    $cache->setMemcache($memcache);
+                    return $cache;
+                },
+        ),
+    ),
+    'doctrine' => array (
+        'configuration' => array(
+            'orm_default' => array(
+                'metadata_cache'    => 'app_memcache',
+                'query_cache'       => 'app_memcache',
+                'result_cache'      => 'app_memcache',
+            ),
+        ),
+    ),	
 );

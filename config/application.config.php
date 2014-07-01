@@ -5,9 +5,9 @@
  *
  * @see https://github.com/zendframework/ZFTool
  */
-!defined('IS_DEV') ? DEFINE('IS_DEV', true) : false;
-return array(
-    'modules' => array(
+$env = getenv('APPLICATION_ENV') ?: 'production';
+
+$modules = array(
         'DoctrineModule',
         'DoctrineORMModule',
         'ZfcBase',
@@ -15,16 +15,26 @@ return array(
         'ZfcUserDoctrineORM',
         'ZfcRbac',
         'ZfcTwig',
-        'ZendDeveloperTools',
-        //'OcraServiceManager',
-        //'BjyProfiler',
+        
         'Application',
         'Auth',
-        'Admin',
         'Game',
+        'Admin',
+    );
 
-        //'DoctrineDataFixtureModule',
-    ),
+if ($env == 'development') {
+    DEFINE('IS_DEV', true);
+    $modules[] = 'ZendDeveloperTools';
+    //$modules[] = 'OcraServiceManager';
+    //$modules[] = 'BjyProfiler',
+    //$modules[] = 'DoctrineDataFixtureModule',
+} else {
+    DEFINE('IS_DEV', false);
+}
+
+return array(
+    'modules' => $modules,
+    
     'module_listener_options' => array(
         'module_paths' => array(
             './module',
@@ -34,18 +44,5 @@ return array(
             'config/autoload/{,*.}{global,local}.php'
         )
     ),
-    'service_manager' => array(
-        'aliases' => array(
-            'Zend\Authentication\AuthenticationService' => 'zfcuser_auth_service'
-        ),
-        'factories' => array(
-            'doctrine.cache.app_memcache' => function ($sm) {
-                    $cache = new \Doctrine\Common\Cache\MemcacheCache();
-                    $memcache = new \Memcache();
-                    $memcache->connect('localhost', 11211);
-                    $cache->setMemcache($memcache);
-                    return $cache;
-                },
-        ),
-    ),
+    
 );
