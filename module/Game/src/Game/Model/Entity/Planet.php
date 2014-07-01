@@ -21,7 +21,7 @@ use Auth\Model\Entity\User;
 class Planet
 {
     /**
-     * @var int
+     * @var int $id
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -29,7 +29,7 @@ class Planet
     private $id;
 
     /**
-     * @var string
+     * @var string $name
      * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $name;
@@ -41,39 +41,86 @@ class Planet
     private $owner;
 
     /**
-     * @var int
+     * @var int $galaxy
      * @ORM\Column(type="integer", nullable=false)
      */
     private $galaxy;
 
     /**
-     * @var int
+     * @var int $system
      * @ORM\Column(type="integer", nullable=false)
      */
     private $system;
 
     /**
-     * @var int
+     * @var int $planet
      * @ORM\Column(type="integer", nullable=false)
      */
     private $planet;
 
     /**
-     * @var int
+     * @var int $type
      * @ORM\Column(type="integer", nullable=false)
      */
     private $type;
+
+    /**
+     * @var \DateTime $destroyed
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $destroyed;
+
+    /**
+     * @var int $diameter
+     * @ORM\Column(type="integer", nullable=false)
+     */
+    private $diameter;
+
+    /**
+     * @var int $fields
+     * @ORM\Column(type="integer", nullable=false)
+     */
+    private $fields;
+
+    /**
+     * @var int $fieldsMax
+     * @ORM\Column(type="integer", nullable=false)
+     */
+    private $fieldsMax;
+
+    /**
+     * @var int $tempMin
+     * @ORM\Column(type="integer", nullable=false)
+     */
+    private $tempMin;
+
+    /**
+     * @var int $tempMax
+     * @ORM\Column(type="integer", nullable=false)
+     */
+    private $tempMax;
 
     /**
      * @param array $options
      */
     public function __construct(array $options = array())
     {
-        if (empty($options)) {
-            $this->name = 'Colony';
-            $this->type = 1;
-        } else {
+        $this->name      = 'Home planet';
+        $this->type      = 1;
+        $this->diameter  = 12800;
+        $this->fields    = 0;
+        $this->fieldsMax = 163;
+        $this->tempMax   = 23;
+        $this->tempMax   = -17;
+        $this->galaxy    = 1;
+        $this->system    = 1;
+        $this->planet    = 3;
 
+        if (!empty($options)) {
+            foreach ($options as $key => $value) {
+                $func = 'set'.$key;
+                $this->$func($value);
+            }
         }
     }
 
@@ -126,4 +173,165 @@ class Planet
     {
         return $this->owner;
     }
+
+    /**
+     * @param \DateTime $destroyed
+     */
+    public function setDestroyed($destroyed)
+    {
+        $this->destroyed = $destroyed;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDestroyed()
+    {
+        return $this->destroyed;
+    }
+
+    /**
+     * @param int $diameter
+     */
+    public function setDiameter($diameter)
+    {
+        $this->diameter = $diameter;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDiameter()
+    {
+        return $this->diameter;
+    }
+
+    /**
+     * @param int $fields
+     */
+    public function setFields($fields)
+    {
+        $this->fields = $fields;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFields()
+    {
+        return $this->fields;
+    }
+
+    /**
+     * @param int $fieldsMax
+     */
+    public function setFieldsMax($fieldsMax)
+    {
+        $this->fieldsMax = $fieldsMax;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFieldsMax()
+    {
+        return $this->fieldsMax;
+    }
+
+    /**
+     * @param int $galaxy
+     */
+    public function setGalaxy($galaxy)
+    {
+        $this->galaxy = $galaxy;
+    }
+
+    /**
+     * @return int
+     */
+    public function getGalaxy()
+    {
+        return $this->galaxy;
+    }
+
+    /**
+     * @param int $planet
+     */
+    public function setPlanet($planet)
+    {
+        $this->planet = $planet;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPlanet()
+    {
+        return $this->planet;
+    }
+
+    /**
+     * @param int $system
+     */
+    public function setSystem($system)
+    {
+        $this->system = $system;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSystem()
+    {
+        return $this->system;
+    }
+
+    /**
+     * @param int $tempMax
+     */
+    public function setTempMax($tempMax)
+    {
+        $this->tempMax = $tempMax;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTempMax()
+    {
+        return $this->tempMax;
+    }
+
+    /**
+     * @param int $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param int $tempMin
+     */
+    public function setTempMin($tempMin)
+    {
+        $this->tempMin = $tempMin;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTempMin()
+    {
+        return $this->tempMin;
+    }
+
 }
