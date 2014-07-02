@@ -19,4 +19,4 @@ class OverviewController extends AbstractActionController
     {
         return new ViewModel();
     }
-} 
+}
