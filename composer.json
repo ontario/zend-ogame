@@ -27,7 +27,7 @@
         "zendframework/zftool": "dev-master",
         "sensiolabs/security-checker": "dev-master",
         "doctrine/data-fixtures": "dev-master",
-        "ontario/doctrine-data-fixture-module": "dev-master"
+        "hounddog/doctrine-data-fixture-module": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit" : "3.7.*",
