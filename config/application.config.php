@@ -20,13 +20,19 @@ $modules = array(
         'Auth',
         'Game',
         'Admin',
+
+        'DoctrineDataFixtureModule',
     );
 
-if (IS_DEV) {
-    $modules[] = 'ZendDeveloperTools';
-    //$modules[] = 'OcraServiceManager';
-    //$modules[] = 'BjyProfiler',
-    $modules[] = 'DoctrineDataFixtureModule';
+if (defined('IS_DEV')) {
+    if (IS_DEV) {
+        $modules[] = 'ZendDeveloperTools';
+        //$modules[] = 'OcraServiceManager';
+        //$modules[] = 'BjyProfiler',
+        //$modules[] = 'DoctrineDataFixtureModule';
+    }
+} else {
+    DEFINE('IS_DEV',false);
 }
 
 return array(
