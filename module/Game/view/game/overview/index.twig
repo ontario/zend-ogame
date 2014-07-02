@@ -4,6 +4,9 @@
     {% include 'game/common/headstyle.twig' %}
 {% endblock head_style %}
 
+{% block info %}
+    {% include 'game/common/info.twig' %}
+{% endblock info %}
 
 {% block left_menu %}
     {% include 'game/common/leftmenu.twig' %}
@@ -16,3 +19,7 @@
 {% block right_menu %}
     {% include 'game/common/rightmenu.twig' %}
 {% endblock right_menu %}
+
+{% block java_script %}
+    {% include 'game/common/javascript.twig' %}
+{% endblock java_script %}
