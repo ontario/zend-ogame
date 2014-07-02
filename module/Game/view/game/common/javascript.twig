@@ -1,0 +1,233 @@
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="files/56996a817665f19c0402f4f3c32c00.js"></script>
+<script type="text/javascript">
+var session = "76ca77d31f8c91e2de38f3893eb8ee726a53d2db";
+var vacation = 0;
+var timerHandler = new TimerHandler();
+function redirectPremium() {
+    location.href = "http://s119-ru.ogame.gameforge.com/game/index.php?page=premium&showDarkMatter=1";
+}
+var isMobile = false;
+var isMobileApp = false;
+var isMobileOnly = false;
+var isFacebookUser = false;
+var overlayWidth = 770;
+var overlayHeight = 600;
+var isRTLEnabled = 0;
+var activateToken = "1141eaf83ca56b387381789c49a2c7a6";
+var miniFleetToken = "e5ff06809974c391e51f10a25ae0faf1";
+var currentPage = "overview";
+var bbcodePreviewUrl = "http:\/\/s119-ru.ogame.gameforge.com\/game\/index.php?page=bbcodePreview";
+var popupWindows = [];
+var honorScore = 0;
+var darkMatter = 0;
+var serverTime = new Date(2014, 6, 2, 15, 19, 19);
+var localTime = new Date();
+var timeDiff = serverTime - localTime;
+localTS = localTime.getTime();
+var startServerTime = localTime.getTime() - (14400000) - localTime.getTimezoneOffset() * 60 * 1000;
+var LocalizationStrings = {"timeunits": {"short": {"year": "\u0433", "month": "\u043c", "week": "\u043d\u0435\u0434", "day": "\u0434", "hour": "\u0447", "minute": "\u043c", "second": "\u0441"}}, "status": {"ready": "\u0433\u043e\u0442\u043e\u0432\u043e"}, "decimalPoint": ".", "thousandSeperator": ".", "unitMega": "\u041c", "unitKilo": "\u041a", "unitMilliard": "\u0413", "question": "\u0412\u043e\u043f\u0440\u043e\u0441", "error": "\u041e\u0448\u0438\u0431\u043e\u0447\u043a\u0430", "loading": "\u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0430...", "yes": "\u0434\u0430", "no": "\u041d\u0435\u0442", "ok": "\u041e\u043a", "attention": "\u0412\u043d\u0438\u043c\u0430\u043d\u0438\u0435", "outlawWarning": "\u0412\u044b \u0441\u043e\u0431\u0438\u0440\u0430\u0435\u0442\u0435\u0441\u044c \u043d\u0430\u043f\u0430\u0441\u0442\u044c \u043d\u0430 \u0441\u0438\u043b\u044c\u043d\u043e\u0433\u043e \u0438\u0433\u0440\u043e\u043a\u0430. \u0415\u0441\u043b\u0438 \u0432\u044b \u043e\u0441\u043c\u0435\u043b\u0438\u0442\u0435\u0441\u044c \u0441\u0434\u0435\u043b\u0430\u0442\u044c \u044d\u0442\u043e, \u0437\u0430\u0449\u0438\u0442\u0430 \u043d\u043e\u0432\u0438\u0447\u043a\u0430 \u0431\u0443\u0434\u0435\u0442 \u043e\u0442\u043a\u043b\u044e\u0447\u0435\u043d\u0430 \u0434\u043b\u044f \u0432\u0430\u0441 \u0432 \u0442\u0435\u0447\u0435\u043d\u0438\u0438 7 \u0434\u043d. \u0438 \u0432\u0441\u0435 \u043e\u0441\u0442\u0430\u043b\u044c\u043d\u044b\u0435 \u0438\u0433\u0440\u043e\u043a\u0438 \u0441\u043c\u043e\u0433\u0443\u0442 \u0430\u0442\u0430\u043a\u043e\u0432\u0430\u0442\u044c \u0432\u0430\u0441. \u0412\u044b \u0443\u0432\u0435\u0440\u0435\u043d\u044b \u0447\u0442\u043e \u0445\u043e\u0442\u0438\u0442\u0435 \u044d\u0442\u043e\u0433\u043e?", "lastSlotWarningMoon": "\u042d\u0442\u043e \u0437\u0434\u0430\u043d\u0438\u0435 \u0437\u0430\u0439\u043c\u0435\u0442 \u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0438\u0439 \u0441\u0432\u043e\u0431\u043e\u0434\u043d\u044b\u0439 \u0441\u043b\u043e\u0442. \u041f\u043e\u0441\u0442\u0440\u043e\u0439\u0442\u0435 \u041b\u0443\u043d\u043d\u0443\u044e \u0431\u0430\u0437\u0443 \u0434\u043b\u044f \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u044f \u0434\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0445 \u043f\u043e\u043b\u0435\u0439. \u0412\u044b \u0443\u0432\u0435\u0440\u0435\u043d\u044b, \u0447\u0442\u043e \u0445\u043e\u0442\u0438\u0442\u0435 \u043f\u043e\u0441\u0442\u0440\u043e\u0438\u0442\u044c \u044d\u0442\u043e \u0437\u0434\u0430\u043d\u0438\u0435?", "lastSlotWarningPlanet": "\u042d\u0442\u043e \u0437\u0434\u0430\u043d\u0438\u0435 \u0437\u0430\u0439\u043c\u0435\u0442 \u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0438\u0439 \u0441\u0432\u043e\u0431\u043e\u0434\u043d\u044b\u0439 \u0441\u043b\u043e\u0442. \u041f\u043e\u0441\u0442\u0440\u043e\u0439\u0442\u0435 \u0422\u0435\u0440\u0440\u0430\u0444\u043e\u0440\u043c\u0435\u0440 \u0434\u043b\u044f \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u044f \u0434\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0445 \u043f\u043e\u043b\u0435\u0439. \u0412\u044b \u0443\u0432\u0435\u0440\u0435\u043d\u044b, \u0447\u0442\u043e \u0445\u043e\u0442\u0438\u0442\u0435 \u043f\u043e\u0441\u0442\u0440\u043e\u0438\u0442\u044c \u044d\u0442\u043e \u0437\u0434\u0430\u043d\u0438\u0435?", "forcedVacationWarning": "\u041d\u0435\u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0438\u0433\u0440\u043e\u0432\u044b\u0435 \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u0438 \u043d\u0435\u0434\u043e\u0441\u0442\u0443\u043f\u043d\u044b \u043f\u043e\u043a\u0430 \u0412\u0430\u0448 \u0430\u043a\u043a\u0430\u0443\u043d\u0442 \u043d\u0435\u0430\u043a\u0442\u0438\u0432\u0438\u0440\u043e\u0432\u0430\u043d.", "moreDetails": "\u0411\u043e\u043b\u044c\u0448\u0435 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438", "lessDetails": "\u041c\u0435\u043d\u044c\u0448\u0435 \u0434\u0435\u0442\u0430\u043b\u0435\u0439", "planetOrder": {"lock": "\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c \u0440\u0430\u0441\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0443", "unlock": "\u0421\u0431\u0440\u043e\u0441\u0438\u0442\u044c \u0440\u0430\u0441\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0443"}, "darkMatter": "\u0422\u0435\u043c\u043d\u0430\u044f \u041c\u0430\u0442\u0435\u0440\u0438\u044f", "activateItem": {"upgradeItemQuestion": "\u0425\u043e\u0442\u0438\u0442\u0435 \u043b\u0438 \u0412\u044b \u0437\u0430\u043c\u0435\u043d\u0438\u0442\u044c \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u044e\u0449\u0435\u0435 \u0443\u043b\u0443\u0447\u0448\u0435\u043d\u0438\u0435? \u0421\u0442\u0430\u0440\u044b\u0439 \u0431\u043e\u043d\u0443\u0441 \u0431\u0443\u0434\u0435\u0442 \u043f\u043e\u0442\u0435\u0440\u044f\u043d.", "upgradeItemQuestionHeader": "\u0417\u0430\u043c\u0435\u043d\u0438\u0442\u044c \u0443\u043b\u0443\u0447\u0448\u0435\u043d\u0438\u0435?"}};
+var constants = {"espionage": 6, "missleattack": 10, "language": "ru", "name": "119"};
+var userData = {"id": "139794"};
+var missleAttackLink = "http:\/\/s119-ru.ogame.gameforge.com\/game\/index.php?page=missileattacklayer&width=669&height=250";
+var showOutlawWarning = true;
+var miniFleetLink = "http:\/\/s119-ru.ogame.gameforge.com\/game\/index.php?page=minifleet&ajax=1";
+var ogameUrl = "http:\/\/s119-ru.ogame.gameforge.com";
+var startpageUrl = "http:\/\/ogame.ru";
+OGConfig = new Array();
+OGConfig.sliderOn = 1;
+function redirectLogout() {
+    location.href = "http:\/\/s119-ru.ogame.gameforge.com\/game\/index.php?page=logout";
+}
+function redirectOverview() {
+    location.href = "http:\/\/s119-ru.ogame.gameforge.com\/game\/index.php?page=overview";
+}
+function initAjaxEventbox() {
+    reloadEventbox({"hostile": 0, "neutral": 0, "friendly": 0});
+}
+function initAjaxResourcebox() {
+    reloadResources({"metal": {"resources": {"actualFormat": "155", "actual": 155, "max": 10000, "production": 0.07990375}, "tooltip": "\u041c\u0435\u0442\u0430\u043b\u043b|<table class=\"resourceTooltip\">\n            <tr>\n                <th>\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u043e:<\/th>\n                <td><span class=\"\">155<\/span><\/td>\n            <\/tr>\n            <tr>\n                <th>\u0412\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442\u044c \u0445\u0440\u0430\u043d\u0438\u043b\u0438\u0449:<\/th>\n                <td><span class=\"\">10.000<\/span><\/td>\n            <\/tr>\n            <tr>\n                <th>\u0421\u0435\u0439\u0447\u0430\u0441 \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u0442\u0441\u044f:<\/th>\n                <td><span class=\"undermark\">+288<\/span><\/td>\n            <\/tr>\n            <tr>\n                <th>\u0412\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442\u044c \u0443\u043a\u0440\u044b\u0442\u0438\u0439:<\/th>\n                <td><span class=\"overermark\">0<\/span><\/td>\n            <\/tr>\n        <\/table>", "class": ""}, "crystal": {"resources": {"actualFormat": "403", "actual": 403, "max": 10000, "production": 0.0125}, "tooltip": "\u041a\u0440\u0438\u0441\u0442\u0430\u043b\u043b|<table class=\"resourceTooltip\">\n            <tr>\n                <th>\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u043e:<\/th>\n                <td><span class=\"\">403<\/span><\/td>\n            <\/tr>\n            <tr>\n                <th>\u0412\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442\u044c \u0445\u0440\u0430\u043d\u0438\u043b\u0438\u0449:<\/th>\n                <td><span class=\"\">10.000<\/span><\/td>\n            <\/tr>\n            <tr>\n                <th>\u0421\u0435\u0439\u0447\u0430\u0441 \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u0442\u0441\u044f:<\/th>\n                <td><span class=\"undermark\">+45<\/span><\/td>\n            <\/tr>\n            <tr>\n                <th>\u0412\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442\u044c \u0443\u043a\u0440\u044b\u0442\u0438\u0439:<\/th>\n                <td><span class=\"overermark\">0<\/span><\/td>\n            <\/tr>\n        <\/table>", "class": ""}, "deuterium": {"resources": {"actualFormat": "0", "actual": 0, "max": 10000, "production": 0}, "tooltip": "\u0414\u0435\u0439\u0442\u0435\u0440\u0438\u0439|<table class=\"resourceTooltip\">\n            <tr>\n                <th>\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u043e:<\/th>\n                <td><span class=\"\">0<\/span><\/td>\n            <\/tr>\n            <tr>\n                <th>\u0412\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442\u044c \u0445\u0440\u0430\u043d\u0438\u043b\u0438\u0449:<\/th>\n                <td><span class=\"\">10.000<\/span><\/td>\n            <\/tr>\n            <tr>\n                <th>\u0421\u0435\u0439\u0447\u0430\u0441 \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u0442\u0441\u044f:<\/th>\n                <td><span class=\"overmark\">0<\/span><\/td>\n            <\/tr>\n            <tr>\n                <th>\u0412\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442\u044c \u0443\u043a\u0440\u044b\u0442\u0438\u0439:<\/th>\n                <td><span class=\"overermark\">0<\/span><\/td>\n            <\/tr>\n        <\/table>", "class": ""}, "energy": {"resources": {"actual": -18, "actualFormat": "-18"}, "tooltip": "\u042d\u043d\u0435\u0440\u0433\u0438\u044f|<table class=\"resourceTooltip\">\n            <tr>\n                <th>\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u043e:<\/th>\n                <td><span class=\"overmark\">-18<\/span><\/td>\n            <\/tr>\n            <tr>\n                <th>\u0421\u0435\u0439\u0447\u0430\u0441 \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u0442\u0441\u044f:<\/th>\n                <td><span class=\"undermark\">+22<\/span><\/td>\n            <\/tr>\n            <tr>\n                <th>\u041f\u043e\u0442\u0440\u0435\u0431\u043b\u0435\u043d\u0438\u0435:<\/th>\n                <td><span class=\"overmark\">-40<\/span><\/td>\n            <\/tr>\n        <\/table>", "class": "overmark"}, "darkmatter": {"resources": {"actual": 0, "actualFormat": "0"}, "string": "0 \u0422\u0451\u043c\u043d\u0430\u044f \u041c\u0430\u0442\u0435\u0440\u0438\u044f", "tooltip": "\u0422\u0435\u043c\u043d\u0430\u044f \u041c\u0430\u0442\u0435\u0440\u0438\u044f|<table class=\"resourceTooltip\">\n                <tr>\n                    <th>\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u043e:<\/th>\n                    <td><span class=\"\">0<\/span><\/td>\n                <\/tr>\n                <tr>\n                    <th>\u041f\u043e\u043a\u0443\u043f\u043d\u0430\u044f:<\/th>\n                    <td><span class=\"\">0<\/span><\/td>\n                <\/tr>\n                <tr>\n                    <th>\u041d\u0430\u0439\u0434\u0435\u043d\u043d\u0430\u044f:<\/th>\n                    <td><span class=\"\">0<\/span><\/td>\n                <\/tr>\n            <\/table>", "class": ""}, "honorScore": 0});
+}
+function getAjaxEventbox() {
+    $.get("http://s119-ru.ogame.gameforge.com/game/index.php?page=fetchEventbox&ajax=1", reloadEventbox, "text");
+}
+function getAjaxResourcebox(callback) {
+    $.get("http://s119-ru.ogame.gameforge.com/game/index.php?page=fetchResources&ajax=1", function (data) {
+        reloadResources(data, callback);
+    }, "text");
+}
+var changeSettingsLink = "http:\/\/s119-ru.ogame.gameforge.com\/game\/index.php?page=changeSettings";
+var changeSettingsToken = "1f141b582f9ff8870f79ee7af251b791";
+var eventlistLink = "http:\/\/s119-ru.ogame.gameforge.com\/game\/index.php?page=eventList&ajax=1";
+function openAnnouncement() {
+    openOverlay("http:\/\/s119-ru.ogame.gameforge.com\/game\/index.php?page=announcement&ajax=1", {'class': 'announcement', zIndex: 4000});
+}
+var planetMoveLoca = {"askTitle": "\u041f\u0435\u0440\u0435\u043c\u0435\u0441\u0442\u0438\u0442\u044c \u043f\u043b\u0430\u043d\u0435\u0442\u0443", "askCancel": "\u0412\u044b \u0443\u0432\u0435\u0440\u0435\u043d\u044b \u0447\u0442\u043e \u0445\u043e\u0442\u0438\u0442\u0435 \u043e\u0442\u043c\u0435\u043d\u0438\u0442\u044c \u043f\u0435\u0440\u0435\u043c\u0435\u0449\u0435\u043d\u0438\u0435 \u044d\u0442\u043e\u0439 \u043f\u043b\u0430\u043d\u0435\u0442\u044b? \u0412\u0440\u0435\u043c\u044f \u043e\u0436\u0438\u0434\u0430\u043d\u0438\u044f \u0434\u043e \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0435\u0433\u043e \u043f\u0435\u0440\u0435\u043c\u0435\u0449\u0435\u043d\u0438\u044f \u043d\u0435 \u0438\u0437\u043c\u0435\u043d\u0438\u0442\u0441\u044f.", "yes": "\u0434\u0430", "no": "\u041d\u0435\u0442", "success": "\u041f\u0435\u0440\u0435\u043c\u0435\u0449\u0435\u043d\u0438\u0435 \u043f\u043b\u0430\u043d\u0435\u0442\u044b \u0431\u044b\u043b\u043e \u043e\u0442\u043c\u0435\u043d\u0435\u043d\u043e.", "error": "\u041e\u0448\u0438\u0431\u043e\u0447\u043a\u0430"};
+function openPlanetRenameGiveupBox() {
+    openOverlay("http:\/\/s119-ru.ogame.gameforge.com\/game\/index.php?page=planetlayer", {title: "\u043f\u043e\u043a\u0438\u043d\u0443\u0442\u044c\/\u043f\u0435\u0440\u0435\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u0442\u044c \u0413\u043b\u0430\u0432\u043d\u0430\u044f \u043f\u043b\u0430\u043d\u0435\u0442\u0430", 'class': "planetRenameOverlay"});
+}
+var textContent = [];
+textContent[0] = "\u0414\u0438\u0430\u043c\u0435\u0442\u0440:";
+textContent[1] = "12.800\u043a\u043c (<span>4<\/span>\/<span>188<\/span>)";
+textContent[2] = "\u0422\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430:";
+textContent[3] = "\u043e\u0442 37\u00b0C \u0434\u043e 77\u00b0C";
+textContent[4] = "\u041c\u0435\u0441\u0442\u043e:";
+textContent[5] = "<a  href=\"http:\/\/s119-ru.ogame.gameforge.com\/game\/index.php?page=galaxy&galaxy=1&system=37&position=6\" >[1:37:6]<\/a>";
+textContent[6] = "\u041e\u0447\u043a\u0438:";
+textContent[7] = "<a href='http:\/\/s119-ru.ogame.gameforge.com\/game\/index.php?page=highscore'>0 (\u041c\u0435\u0441\u0442\u043e 4.287 \u0438\u0437 4.309)<\/a>";
+textContent[8] = "\u041e\u0447\u043a\u043e\u0432 \u0447\u0435\u0441\u0442\u0438:";
+textContent[9] = "0";
+var textDestination = [];
+textDestination[0] = "diameterField";
+textDestination[1] = "diameterContentField";
+textDestination[2] = "temperatureField";
+textDestination[3] = "temperatureContentField";
+textDestination[4] = "positionField";
+textDestination[5] = "positionContentField";
+textDestination[6] = "scoreField";
+textDestination[7] = "scoreContentField";
+textDestination[8] = "honorField";
+textDestination[9] = "honorContentField";
+var currentIndex = 0;
+var currentChar = 0;
+var linetwo = 0;
+var locaPremium = {"buildingHalfOverlay": "\u0412\u044b \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u043c\u0435\u043d\u044c\u0448\u0438\u0442\u044c \u043e\u0431\u0449\u0435\u0435 \u0432\u0440\u0435\u043c\u044f \u0441\u0442\u0440\u043e\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u0430 () \u043d\u0430 50% \u0437\u0430  <b>750 \u0422\u0451\u043c\u043d\u043e\u0439 \u041c\u0430\u0442\u0435\u0440\u0438\u0438<\/b>?", "buildingFullOverlay": "\u0417\u0430\u0432\u0435\u0440\u0448\u0438\u0442\u044c \u043f\u0440\u0438\u043a\u0430\u0437 \u0441\u0442\u0440\u043e\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u0430 \u0437\u0430 <b>750 \u0422\u0451\u043c\u043d\u043e\u0439 \u041c\u0430\u0442\u0435\u0440\u0438\u0438<\/b>?", "shipsHalfOverlay": "\u0423\u043c\u0435\u043d\u044c\u0448\u0438\u0442\u044c \u0432\u0440\u0435\u043c\u044f \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0441\u0442\u0432\u0430 () \u043d\u0430 50% \u0437\u0430 <b>750 \u0422\u0451\u043c\u043d\u043e\u0439 \u041c\u0430\u0442\u0435\u0440\u0438\u0438<\/b>?", "shipsFullOverlay": "\u041c\u0433\u043d\u043e\u0432\u0435\u043d\u043d\u043e \u0437\u0430\u0432\u0435\u0440\u0448\u0438\u0442\u044c \u0441\u0442\u0440\u043e\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u0437\u0430  <b>750 \u0422\u0451\u043c\u043d\u043e\u0439 \u041c\u0430\u0442\u0435\u0440\u0438\u0438<\/b>?", "researchHalfOverlay": "\u0425\u043e\u0442\u0438\u0442\u0435 \u043b\u0438 \u0432\u044b \u0443\u043c\u0435\u043d\u044c\u0448\u0438\u0442\u044c \u043d\u0430 50% \u0432\u0440\u0435\u043c\u044f \u0438\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f () \u0437\u0430 <b>750 \u0422\u0451\u043c\u043d\u043e\u0439 \u041c\u0430\u0442\u0435\u0440\u0438\u0438<\/b>?", "researchFullOverlay": "\u0425\u043e\u0442\u0438\u0442\u0435 \u043b\u0438 \u0432\u044b \u043c\u0433\u043d\u043e\u0432\u0435\u043d\u043d\u043e \u0437\u0430\u0432\u0435\u0440\u0448\u0438\u0442\u044c \u0438\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u0435 \u0437\u0430 <b>750 \u0422\u0451\u043c\u043d\u043e\u0439 \u041c\u0430\u0442\u0435\u0440\u0438\u0438<\/b>?"};
+var priceBuilding = 750;
+var priceResearch = 750;
+var priceShips = 750;
+var loca = loca || {};
+loca = $.extend({}, loca, {"error": "\u041e\u0448\u0438\u0431\u043e\u0447\u043a\u0430", "errorNotEnoughDM": "\u0423 \u0412\u0430\u0441 \u043d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u0422\u0451\u043c\u043d\u043e\u0439 \u041c\u0430\u0442\u0435\u0440\u0438\u0438!<br>\u0416\u0435\u043b\u0430\u0435\u0442\u0435 \u043f\u0440\u0438\u043e\u0431\u0440\u0435\u0441\u0442\u0438 \u0422\u0451\u043c\u043d\u0443\u044e \u041c\u0430\u0442\u0435\u0440\u0438\u044e?", "notice": "\u0421\u0441\u044b\u043b\u043a\u0430", "planetGiveupQuestion": "\u0412\u044b \u0443\u0432\u0435\u0440\u0435\u043d\u044b, \u0447\u0442\u043e \u0445\u043e\u0442\u0438\u0442\u0435 \u043f\u043e\u043a\u0438\u043d\u0443\u0442\u044c \u043f\u043b\u0430\u043d\u0435\u0442\u0443 %planetName% %planetCoordinates%?", "moonGiveupQuestion": "\u0412\u044b \u0443\u0432\u0435\u0440\u0435\u043d\u044b, \u0447\u0442\u043e \u0445\u043e\u0442\u0438\u0442\u0435 \u043e\u0442\u043a\u0430\u0437\u0430\u0442\u044c\u0441\u044f \u043e\u0442 \u043b\u0443\u043d\u044b %planetName% %planetCoordinates%?"});
+function type() {
+    var destination = document.getElementById(textDestination[currentIndex]);
+    if (destination) {
+        if (textContent[currentIndex].substr(currentChar, 1) == "<" && linetwo != 1) {
+            while (textContent[currentIndex].substr(currentChar, 1) != ">") {
+                currentChar++;
+            }
+        }
+        if (linetwo == 1) {
+            destination.innerHTML = textContent[currentIndex];
+            currentChar = destination.innerHTML = textContent[currentIndex].length + 1;
+        } else {
+            destination.innerHTML = textContent[currentIndex].substr(0, currentChar) + "_";
+            currentChar++;
+        }
+        if (currentChar > textContent[currentIndex].length) {
+            destination.innerHTML = textContent[currentIndex];
+            currentIndex++;
+            currentChar = 0;
+            if (currentIndex < textContent.length) {
+                type();
+            }
+        } else {
+            setTimeout("type()", 15);
+        }
+    }
+}
+function planetRenamed(data) {
+    var data = $.parseJSON(data);
+    if (data["status"]) {
+        $("#planetNameHeader").html(data["newName"]);
+        reloadRightmenu("http://s119-ru.ogame.gameforge.com/game/index.php?page=rightmenu&renamed=1&pageToLink=overview");
+        $(".overlayDiv.planetRenameOverlay").dialog('close');
+    }
+    errorBoxAsArray(data["errorbox"]);
+}
+function reloadPage() {
+    location.href = "http:\/\/s119-ru.ogame.gameforge.com\/game\/index.php?page=overview";
+}
+var demolish_id;
+var buildUrl;
+function loadDetails(type) {
+    url = "http://s119-ru.ogame.gameforge.com/game/index.php?page=overview&ajax=1";
+    if (typeof(detailUrl) != 'undefined') {
+        url = detailUrl;
+    }
+    $.get(url, {type: type}, function (data) {
+        $("#detail").html(data);
+        $("#techDetailLoading").hide();
+        $("input[type='text']:first", document.forms["form"]).focus();
+    });
+}
+function sendBuildRequest(url, ev, showSlotWarning) {
+    if (ev != undefined) {
+        var keyCode;
+        if (window.event) {
+            keyCode = window.event.keyCode;
+        } else if (ev) {
+            keyCode = ev.which;
+        } else {
+            return true;
+        }
+        if (keyCode != 13) {
+            return true;
+        }
+    }
+    function build() {
+        if (url == null) {
+            sendForm();
+        } else {
+            fastBuild();
+        }
+    }
+
+    if (url == null) {
+        fallBackFunc = sendForm;
+    } else {
+        fallBackFunc = build;
+        buildUrl = url;
+    }
+    if (showSlotWarning) {
+        build();
+    } else {
+        build();
+    }
+    return false;
+}
+function fastBuild() {
+    location.href = buildUrl;
+    return false;
+}
+function sendForm() {
+    document.form.submit();
+    return false;
+}
+function demolishBuilding(id, question) {
+    demolish_id = id;
+    question += "<br/><br/>" + $("#demolish" + id).html();
+    errorBoxDecision("Внимание", "" + question + "", "да", "Нет", demolishStart);
+}
+function demolishStart() {
+    window.location.replace("http://s119-ru.ogame.gameforge.com/game/index.php?page=overview&modus=3&token=bf0813c91e1d6ea791f20eeb95a1aa27&type=" + demolish_id);
+}
+gfSlider = new GFSlider(getElementByIdWithCache('detailWrapper'));
+var detailUrl = "http:\/\/s119-ru.ogame.gameforge.com\/game\/index.php?page=buffActivation&ajax=1";
+var cancelProduction_id;
+var production_listid;
+function cancelProduction(id, listid, question) {
+    cancelProduction_id = id;
+    production_listid = listid;
+    errorBoxDecision("\u0412\u043d\u0438\u043c\u0430\u043d\u0438\u0435", "" + question + "", "\u0434\u0430", "\u041d\u0435\u0442", cancelProductionStart);
+}
+function cancelProductionStart() {
+    window.location.replace("http://s119-ru.ogame.gameforge.com/game/index.php?page=overview&modus=2&token=e79b10c3541cbcf978ac47daa89487a9&techid=" + cancelProduction_id + "&listid=" + production_listid);
+}
+function initType() {
+    type();
+}
+new baulisteCountdown(getElementByIdWithCache("moveCountdown"), -1404299959);
+$('#planet').find('h2 a').hover(function () {
+    $('#planet').find('h2 a img').toggleClass('hinted');
+}, function () {
+    $('#planet').find('h2 a img').toggleClass('hinted');
+});
+var player = {hasCommander: false};
+$(document).ready(function () {
+    initIndex();
+    initAjaxEventbox();
+    initOverview();
+    initBuffBar();
+    initType();
+    tabletInitOverviewAdvice();
+});</script>
+<!-- END JAVASCRIPT -->

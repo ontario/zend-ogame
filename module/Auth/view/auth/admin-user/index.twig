@@ -18,10 +18,16 @@
                 {% for user in users %}
                     <tr>
                         <td>{{ user.id }}</td>
-                        <td>{{ user.name }}</td>
+                        <td>{{ user.username }}</td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.displayName }}</td>
-                        <td>{{ user.password }}</td>
+                        <td>
+                        {% if isGranted('view_user_password') %}
+                            {{ user.password }}
+                        {% else %}
+                            (hidden)
+                        {% endif %}
+                        </td>
                         <td><button class="btn btn-xs btn-info"    type="button">Show</button></td>
                         <td>
                             <button class="btn btn-xs btn-success" type="button">Duplicate</button>
