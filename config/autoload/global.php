@@ -27,6 +27,18 @@ return array(
         ),
     ),
     'doctrine' => array (
+        'connection' => array(
+            'orm_default' => array(
+                'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
+                'params' => array(
+                    'host'     => 'localhost',
+                    'port'     => '3306',
+                    'user'     => 'ogame',
+                    'password' => 'ogame',
+                    'dbname'   => 'ogame',
+                )
+            )
+        ),
         'configuration' => array(
             'orm_default' => array(
                 'metadata_cache'    => 'app_memcache',
@@ -34,5 +46,28 @@ return array(
                 'result_cache'      => 'app_memcache',
             ),
         ),
-    ),	
+    ),
+    'zfc_rbac' => [
+        'guards' => [
+            'ZfcRbac\Guard\RouteGuard' => [
+                'zfcuser/login'    => ['guest'],
+                'zfcuser/register' => ['guest'],
+                'zfcuser*'         => ['user'],
+            ]
+        ],
+        'redirect_strategy' => [
+            'redirect_when_connected'        => true,
+            'redirect_to_route_connected'    => 'game',
+            'redirect_to_route_disconnected' => 'zfcuser/login',
+            'append_previous_uri'            => true,
+            'previous_uri_query_key'         => 'redirect',
+        ],
+    ],
+    'zfcuser' => array(
+        'logout_redirect_route' => 'home',
+        'login_redirect_route' => 'game',
+        'use_redirect_parameter_if_present' => true,
+        'login_after_registration' => true,
+        'enable_username' => true,
+    )
 );

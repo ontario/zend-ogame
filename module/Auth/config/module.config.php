@@ -48,22 +48,6 @@ return array(
         'user_entity_class'       => 'Auth\Model\Entity\User',
         'enable_default_entities' => false,
     ),
-    'zfc_rbac' => [
-        'guards' => [
-            'ZfcRbac\Guard\RouteGuard' => [
-                'zfcuser/login'    => ['guest'],
-                'zfcuser/register' => ['guest'],
-                'zfcuser*'         => ['user'],
-            ]
-        ],
-        'redirect_strategy' => [
-            'redirect_when_connected'        => true,
-            'redirect_to_route_connected'    => 'home',
-            'redirect_to_route_disconnected' => 'zfcuser/login',
-            'append_previous_uri'            => true,
-            'previous_uri_query_key'         => 'redirectTo',
-        ],
-    ],
     'view_manager' => array(
         'template_path_stack' => array(
             __DIR__ . '/../view',
