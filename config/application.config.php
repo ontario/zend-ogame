@@ -6,46 +6,43 @@
  * @see https://github.com/zendframework/ZFTool
  */
 
-
 $modules = array(
-        'DoctrineModule',
-        'DoctrineORMModule',
-        'ZfcBase',
-        'ZfcUser',
-        'ZfcUserDoctrineORM',
-        'ZfcRbac',
-        'ZfcTwig',
-        
-        'Application',
-        'Auth',
-        'Game',
-        'Admin',
+	'DoctrineModule',
+	'DoctrineORMModule',
+	'ZfcBase',
+	'ZfcUser',
+	'ZfcUserDoctrineORM',
+	'ZfcRbac',
+	'ZfcTwig',
 
-        'DoctrineDataFixtureModule',
-    );
+	'Application',
+	'Auth',
+	'Game',
+	'Admin',
+
+	'DoctrineDataFixtureModule',
+);
 
 if (defined('IS_DEV')) {
-    if (IS_DEV) {
-        $modules[] = 'ZendDeveloperTools';
-        //$modules[] = 'OcraServiceManager';
-        //$modules[] = 'BjyProfiler',
-        //$modules[] = 'DoctrineDataFixtureModule';
-    }
+	if (IS_DEV) {
+		$modules[] = 'ZendDeveloperTools';
+		//$modules[] = 'OcraServiceManager';
+		//$modules[] = 'BjyProfiler',
+		//$modules[] = 'DoctrineDataFixtureModule';
+	}
 } else {
-    DEFINE('IS_DEV',false);
+	DEFINE('IS_DEV', false);
 }
 
 return array(
-    'modules' => $modules,
-    
-    'module_listener_options' => array(
-        'module_paths' => array(
-            './module',
-            './vendor'
-        ),
-        'config_glob_paths' => array(
-            'config/autoload/{,*.}{global,local}.php'
-        )
-    ),
-    
+	'modules' => $modules,
+	'module_listener_options' => array(
+		'module_paths'           => array(
+			'./module',
+			'./vendor',
+		),
+		'config_glob_paths' => array(
+			'config/autoload/{,*.}{global,local}.php',
+		)
+	),
 );

@@ -2,31 +2,31 @@
 namespace Game;
 
 return array(
-    'controllers'     => array(
+    'controllers' => array(
         'invokables' => array(
-            __NAMESPACE__ . '\Controller\Overview'   => __NAMESPACE__ . '\Controller\OverviewController',
+            __NAMESPACE__ . '\Controller\Overview' => __NAMESPACE__ . '\Controller\OverviewController',
         ),
     ),
     'router' => array(
         'routes' => array(
             'game' => array(
-                'type'          => 'literal',
-                'options'       => array(
-                    'route'    => '/game',
+                'type' => 'literal',
+                'options' => array(
+                    'route' => '/game',
                     'defaults' => array(
                         'controller' => __NAMESPACE__ . '\Controller\Overview',
-                        'action'     => 'index',
+                        'action' => 'index',
                     ),
                 ),
                 'may_terminate' => true,
-                'child_routes'  => array(
-                    'home'    => array(
-                        'type'    => 'literal',
+                'child_routes' => array(
+                    'home' => array(
+                        'type' => 'literal',
                         'options' => array(
-                            'route'    => '/overview',
+                            'route' => '/overview',
                             'defaults' => array(
                                 'controller' => __NAMESPACE__ . '\Controller\Overview',
-                                'action'     => 'index',
+                                'action' => 'index',
                             ),
                         ),
                     ),
@@ -37,7 +37,7 @@ return array(
     'zfc_rbac' => [
         'guards' => [
             'ZfcRbac\Guard\RouteGuard' => [
-                'game*'    => ['user'],
+                'game*' => ['guest'],
             ]
         ],
     ],
@@ -48,19 +48,19 @@ return array(
     ),
     'doctrine' => array(
         'driver' => array(
-            __NAMESPACE__ .'_entity' => array(
-                'class' =>'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+            __NAMESPACE__ . '_entity' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'app_memcache',
-                'paths' => array(__DIR__ . '/../src/'. __NAMESPACE__ .'/Model/Entity'),
+                'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Model/Entity'),
             ),
             'orm_default' => array(
                 'drivers' => array(
-                    __NAMESPACE__ .'\Model\Entity' => __NAMESPACE__ .'_entity'
+                    __NAMESPACE__ . '\Model\Entity' => __NAMESPACE__ . '_entity',
                 ),
             ),
         ),
         'fixture' => array(
-            __NAMESPACE__ .'_Fixture' => __DIR__ . '/../src/'. __NAMESPACE__ .'/Model/Fixture',
+            __NAMESPACE__ . '_Fixture' => __DIR__ . '/../src/' . __NAMESPACE__ . '/Model/Fixture',
         ),
     ),
 
